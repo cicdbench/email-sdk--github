@@ -1,0 +1,44 @@
+{
+  "provider": "github",
+  "round": "gate-r1",
+  "manifests": {
+    ".github/workflows/ci.yml": {
+      "removedTriggers": [
+        "workflow_dispatch",
+        "push"
+      ],
+      "removedEnv": [],
+      "removedJobs": [
+        {
+          "id": "live-adapters",
+          "reason": "secret"
+        }
+      ],
+      "runsOnChanges": [
+        {
+          "job": "verify",
+          "from": "tenki-standard-medium-4c-8g"
+        },
+        {
+          "job": "ai-compatibility",
+          "from": "tenki-standard-medium-4c-8g"
+        },
+        {
+          "job": "node",
+          "from": "tenki-standard-medium-4c-8g"
+        },
+        {
+          "job": "commonjs",
+          "from": "tenki-standard-small-2c-4g"
+        }
+      ],
+      "localReusable": [],
+      "removedSteps": []
+    }
+  },
+  "deleted": [
+    ".github/workflows/blog-schedule.yml",
+    ".github/workflows/issue-analysis.yml",
+    ".github/workflows/release.yml"
+  ]
+}
